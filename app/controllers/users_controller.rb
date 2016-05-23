@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update]
   before_action :correct_user, only:[:edit, :update]
 
   def show
-    @user = User.find(params[:id])
     # @microposts = @user.microposts.order(created_at: :desc)
   end
 
@@ -24,10 +24,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
-    #   redirect_to current_user
-    # else
-    flash.now[:success] = "All Changes Saved"
+    if @user.update(user_params)
+      flash[:success] = "All Changes Saved"
+      redirect_to current_user
+    else
       render 'edit'
     end
   end
@@ -38,8 +38,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :prefecture, :password, :password_confirmation)
   end
 
-  def correct_user
+  def set_user
     @user = User.find(params[:id])
+  end
+
+  def correct_user
     redirect_to root_url unless @user == current_user
   end
 end
