@@ -16,5 +16,12 @@
     <% end %>
     <%= yield %>
   </div>
+
+  <script type="text/javascript">
+    (function($){
+      $('div.alert').delay(2000).fadeOut(1500);
+    })(jQuery);
+  </script>
+
 </body>
 </html>
