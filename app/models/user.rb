@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   # validates :password, length: { minimum: 4 }
-  
+
   has_many :microposts
   has_many :following_relationships, class_name: "Relationship",
                                       foreign_key: "follower_id",
@@ -34,4 +34,9 @@ class User < ActiveRecord::Base
   def following?(other_user)
     following_users.include?(other_user)
   end
+
+  def feed_items
+    Micropost.where(user_id: following_user_ids + [self.id])
+  end
+
 end
