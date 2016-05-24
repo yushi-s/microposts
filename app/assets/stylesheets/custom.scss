@@ -195,3 +195,68 @@ span.picture {
     border: 0;
   }
 }
+
+/* show_follow */
+thead th.th {
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  color: rgb(82, 82, 82);
+}
+
+h3.show_follow_count {
+  margin-bottom: 3rem;
+  text-align: right;
+  // margin-right: 2rem;
+  color: rgb(170, 170, 170);
+
+}
+
+tbody img.gravatar {
+  width: 50px;
+  height: 50px;
+}
+
+tbody th.show_name {
+  color: rgb(82, 82, 82);
+  font-size: 2.5rem;
+  letter-spacing: 0.06rem;
+  vertical-align: -0.5rem;
+}
+
+tbody td.show_link {
+  font-size: 2rem;
+  a {
+  color: rgb(10, 111, 167);
+  text-decoration: none;
+  vertical-align: -0.5rem;
+  letter-spacing: 0.08rem;
+  // &:hover {
+  //   text-decoration: none;
+  //   color: rgb(10, 111, 167);
+  //   }
+  }
+}
+
+/* _stats */
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $gray-lighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: rgb(10, 111, 167);
+    }
+  }
+  strong {
+    display: block;
+  }
+}
