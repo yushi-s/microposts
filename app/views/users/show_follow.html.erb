@@ -5,7 +5,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <p>pref: <%= @user.prefecture %></p>
+      <p><%=t :pref %> <%= @user.prefecture %></p>
     </section>
     <section>
       <%= render 'shared/stats' %>
@@ -30,7 +30,7 @@
           <tr>
             <th> <%= gravatar_for @user %> </th>
             <th class="show_name"> <%= user.name %> </th>
-            <td class="show_link"> <%= link_to "profile", user_path(user) %> </td>
+            <td class="show_link"> <%= link_to t("profile"), user_path(user) %> </td>
           </tr>
         <% end %>
         </tbody>

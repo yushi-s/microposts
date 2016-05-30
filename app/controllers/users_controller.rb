@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :following, :followers]
+  before_action :set_user, only: [:show, :edit, :update, :following, :followers, :like]
   before_action :correct_user, only:[:edit, :update]
 
   def show
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "All Changes Saved"
+      flash[:success] = t("all_changes_saved")
       redirect_to current_user
     else
       render 'edit'
@@ -33,15 +33,21 @@ class UsersController < ApplicationController
   end
 
   def following
-    @title = "Following"
+    @title = t("following")
     @users = @user.following_users
     render 'show_follow'
   end
 
   def followers
-    @title = "Followers"
+    @title = t("followers")
     @users = @user.follower_users
     render 'show_follow'
+  end
+
+  def like
+    @title = t("likes")
+    @microposts = current_user.like_microposts.order(created_at: :desc)
+    render 'show_like'
   end
 
   private
