@@ -210,6 +210,8 @@ ja:
   all_changes_saved: 変更を保存しました
   invalid_email_password_combination: メールアドレスかパスワードが間違っています
   change_my_account: アカウント変更
+  email: メールアドレス
+  password: パスワード
   # welcome_to_the_microposts: ようこそ Micropostsへ！
 
   # microposts_controller
